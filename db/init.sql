@@ -38,5 +38,6 @@ CREATE TABLE `RefreshTokens` (
 INSERT INTO `User` (`id`, `password`)
 VALUES (1, '$2y$10$Izu/D9bxInB93PabM3pe0uIRVKqUCcqUxTo42xdcJQk6XyPf0iXJ.');
 
-INSERT INTO `Content` (`id`, `value`)
-VALUES (1, 'РОМБУР');
+INSERT INTO `Content` (`id`, `value`) VALUES 
+(1, 'РОМБУР'),
+(2, 'Привет!');
