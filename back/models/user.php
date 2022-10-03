@@ -48,7 +48,7 @@ class User
     public function readContent()
     {
         $query = "SELECT * FROM Content";
-        $content = $this->dataBase->db->query($query)->fetch();
+        $content = $this->dataBase->db->query($query)->fetchAll();
         return $content;
     }
 
@@ -129,10 +129,10 @@ class User
                 $this->addRefreshToken($tokens["refreshToken"], $fullUser['id']);
                 return $tokens;
             } else {
-                throw new Exception("User not found", 404);
+                throw new Exception("Неверный пароль", 404);
             }
         } else {
-            return array("message" => "Введите пароль");
+            throw new Exception("Введите пароль", 409);
         }
     }
 

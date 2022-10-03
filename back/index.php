@@ -1,4 +1,9 @@
 <?php
+
+ini_set('display_errors', '1');
+ini_set('display_startup_errors', '1');
+error_reporting(E_ALL);
+
 header("Access-Control-Allow-Origin: *");
 header("Access-Control-Allow-Methods: GET, PUT, POST, DELETE, OPTIONS");
 header("Access-Control-Allow-Headers: Origin, Content-Type, X-Auth-Token , Authorization");
@@ -32,8 +37,8 @@ $app->post('/login', function (Request $request, Response $response) use ($dataB
         $response->getBody()->write(json_encode($user->login($requestData['password'])));
         return $response;
     } catch (Exception $e) {
-        $response->getBody()->write(json_encode(array("message" => "Пользователь не найден")));
-        return $response->withStatus(401);
+        $response->getBody()->write(json_encode(array("message" => $e->getMessage())));
+        return $response->withStatus($e->getCode());
     }
 });
 
