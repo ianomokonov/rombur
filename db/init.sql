@@ -34,3 +34,6 @@ CREATE TABLE `RefreshTokens` (
   `token` VARCHAR(255) NOT NULL,
   PRIMARY KEY (`id`)
 );
+
+INSERT INTO `User` (`id`, `password`)
+VALUES (1, '$2y$10$Izu/D9bxInB93PabM3pe0uIRVKqUCcqUxTo42xdcJQk6XyPf0iXJ.');
