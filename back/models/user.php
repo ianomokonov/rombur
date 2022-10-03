@@ -26,9 +26,6 @@ class User
         // Вставляем запрос
         $userData->password = password_hash($userData->password, PASSWORD_BCRYPT);
 
-        if ($this->emailExists($userData->email)) {
-            throw new Exception('Пользователь уже существует');
-        }
         $query = $this->dataBase->genInsertQuery(
             $userData,
             $this->table
@@ -46,13 +43,6 @@ class User
             return $tokens;
         }
         return null;
-    }
-
-    // Получение пользовательских ролей
-    public function getRoles()
-    {
-        $query = "SELECT * FROM UserRole";
-        return $this->dataBase->db->query($query)->fetchAll();;
     }
 
     // Получение пользовательской информации
@@ -253,11 +243,11 @@ class User
         return $stmt->fetch()['image'];
     }
 
-    public function login($email, $password)
+    public function login($password)
     {
-        if ($email != null) {
-            $sth = $this->dataBase->db->prepare("SELECT id, password FROM " . $this->table . " WHERE email = ? LIMIT 1");
-            $sth->execute(array($email));
+        if ($password != null) {
+            $sth = $this->dataBase->db->prepare("SELECT id, password FROM " . $this->table . " LIMIT 1");
+            $sth->execute(array());
             $fullUser = $sth->fetch();
             if ($fullUser) {
                 if (!password_verify($password, $fullUser['password'])) {
@@ -270,7 +260,7 @@ class User
                 throw new Exception("User not found", 404);
             }
         } else {
-            return array("message" => "Введите данные для регистрации");
+            return array("message" => "Введите пароль");
         }
     }
 
