@@ -72,37 +72,25 @@ $app->post('/delete-token', function (Request $request, Response $response) use 
     }
 });
 
-$app->post('/update-password', function (Request $request, Response $response) use ($dataBase) {
+$app->get('/content', function (Request $request, Response $response) use ($user) {
     try {
-        $user = new User($dataBase);
-        $response->getBody()->write(json_encode($user->getUpdateLink($request->getParsedBody()['email'])));
+        $response->getBody()->write(json_encode($user->readContent()));
         return $response;
     } catch (Exception $e) {
-        $response = new ResponseClass();
-        $response->getBody()->write(json_encode(array("message" => $e->getMessage())));
-        return $response->withStatus(500);
+        $response->getBody()->write(json_encode(array("e" => $e, "message" => "Ошибка загрузки контента")));
+        return $response->withStatus(401);
     }
 });
 
-$app->group('/', function (RouteCollectorProxy $group) use ($user, $service) {
+$app->group('/', function (RouteCollectorProxy $group) use ($user) {
 
     $group->group('content', function (RouteCollectorProxy $userGroup) use ($user) {
-        $userGroup->get('', function (Request $request, Response $response) use ($user) {
-            try {
-                $response->getBody()->write(json_encode($user->read($request->getAttribute('userId'))));
-                return $response;
-            } catch (Exception $e) {
-                $response->getBody()->write(json_encode(array("e" => $e, "message" => "Ошибка загрузки пользователя")));
-                return $response->withStatus(401);
-            }
-        });
-
         $userGroup->put('', function (Request $request, Response $response) use ($user) {
             try {
-                $response->getBody()->write(json_encode($user->updateCompanyInfo($request->getAttribute('userId'), $request->getParsedBody())));
+                $response->getBody()->write(json_encode($user->updateContent($request->getParsedBody())));
                 return $response;
             } catch (Exception $e) {
-                $response->getBody()->write(json_encode(array("e" => $e, "message" => "Ошибка изменения компании")));
+                $response->getBody()->write(json_encode(array("e" => $e, "message" => "Ошибка изменения контента")));
                 return $response->withStatus(401);
             }
         });
