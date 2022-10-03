@@ -7,7 +7,6 @@ require_once 'vendor/autoload.php';
 require_once './utils/database.php';
 require_once './utils/token.php';
 require_once './models/user.php';
-require_once './models/service.php';
 
 use Psr\Http\Message\ResponseInterface as Response;
 use Slim\Psr7\Response as ResponseClass;

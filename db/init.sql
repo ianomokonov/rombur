@@ -23,3 +23,14 @@ CREATE TABLE `Content` (
   `value` TEXT NOT NULL,
   PRIMARY KEY (`id`)
 );
+
+-- ---
+-- Table 'RefreshTokens'
+-- ---
+DROP TABLE IF EXISTS `RefreshTokens`;
+CREATE TABLE `RefreshTokens` (
+  `id` INTEGER(10) AUTO_INCREMENT,
+  `userId` INTEGER(10) NOT NULL,
+  `token` VARCHAR(255) NOT NULL,
+  PRIMARY KEY (`id`)
+);
