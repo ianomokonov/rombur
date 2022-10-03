@@ -15,11 +15,9 @@ use Psr\Http\Message\ServerRequestInterface as Request;
 use Psr\Http\Server\RequestHandlerInterface as RequestHandler;
 use Slim\Factory\AppFactory;
 use Slim\Routing\RouteCollectorProxy;
-use Slim\Routing\RouteContext;
 
 $dataBase = new DataBase();
 $user = new User($dataBase);
-$service = new Service($dataBase);
 $token = new Token();
 $app = AppFactory::create();
 $app->setBasePath(rtrim($_SERVER['PHP_SELF'], '/index.php'));
@@ -36,17 +34,6 @@ $app->post('/login', function (Request $request, Response $response) use ($dataB
         return $response;
     } catch (Exception $e) {
         $response->getBody()->write(json_encode(array("message" => "Пользователь не найден")));
-        return $response->withStatus(401);
-    }
-});
-
-$app->get('/roles', function (Request $request, Response $response) use ($dataBase) {
-    $user = new User($dataBase);
-    try {
-        $response->getBody()->write(json_encode($user->getRoles()));
-        return $response;
-    } catch (Exception $e) {
-        $response->getBody()->write(json_encode(array("message" => "Ошибка загрузки ролей")));
         return $response->withStatus(401);
     }
 });
@@ -100,7 +87,7 @@ $app->post('/update-password', function (Request $request, Response $response) u
 
 $app->group('/', function (RouteCollectorProxy $group) use ($user, $service) {
 
-    $group->group('user', function (RouteCollectorProxy $userGroup) use ($user) {
+    $group->group('content', function (RouteCollectorProxy $userGroup) use ($user) {
         $userGroup->get('', function (Request $request, Response $response) use ($user) {
             try {
                 $response->getBody()->write(json_encode($user->read($request->getAttribute('userId'))));
@@ -111,51 +98,7 @@ $app->group('/', function (RouteCollectorProxy $group) use ($user, $service) {
             }
         });
 
-        $userGroup->get('/profile-info', function (Request $request, Response $response) use ($user) {
-            try {
-                $response->getBody()->write(json_encode($user->getProfileInfo($request->getAttribute('userId'))));
-                return $response;
-            } catch (Exception $e) {
-                $response->getBody()->write(json_encode(array("e" => $e, "message" => "Ошибка загрузки пользователя")));
-                return $response->withStatus(401);
-            }
-        });
-
-        $userGroup->post('/document', function (Request $request, Response $response) use ($user) {
-            try {
-                $response->getBody()->write(json_encode($user->addDocument($request->getAttribute('userId'), $request->getParsedBody(), $_FILES['file'])));
-                return $response;
-            } catch (Exception $e) {
-                $response->getBody()->write(json_encode(array("e" => $e, "message" => "Ошибка загрузки документа")));
-                return $response->withStatus(500);
-            }
-        });
-
-        $userGroup->delete('/document/{documentId}', function (Request $request, Response $response) use ($user) {
-            try {
-
-                $routeContext = RouteContext::fromRequest($request);
-                $route = $routeContext->getRoute();
-                $documentId = $route->getArgument('documentId');
-                $response->getBody()->write(json_encode($user->deleteDocument($request->getAttribute('userId'), $documentId)));
-                return $response;
-            } catch (Exception $e) {
-                $response->getBody()->write(json_encode(array("e" => $e, "message" => "Ошибка загрузки пользователя")));
-                return $response->withStatus(401);
-            }
-        });
-
-        $userGroup->post('/company-info', function (Request $request, Response $response) use ($user) {
-            try {
-                $response->getBody()->write(json_encode($user->addCompanyInfo($request->getAttribute('userId'), $request->getParsedBody())));
-                return $response;
-            } catch (Exception $e) {
-                $response->getBody()->write(json_encode(array("e" => $e, "message" => "Ошибка добавления компании")));
-                return $response->withStatus(401);
-            }
-        });
-
-        $userGroup->put('/company-info', function (Request $request, Response $response) use ($user) {
+        $userGroup->put('', function (Request $request, Response $response) use ($user) {
             try {
                 $response->getBody()->write(json_encode($user->updateCompanyInfo($request->getAttribute('userId'), $request->getParsedBody())));
                 return $response;
@@ -163,57 +106,6 @@ $app->group('/', function (RouteCollectorProxy $group) use ($user, $service) {
                 $response->getBody()->write(json_encode(array("e" => $e, "message" => "Ошибка изменения компании")));
                 return $response->withStatus(401);
             }
-        });
-
-        $userGroup->put('', function (Request $request, Response $response) use ($user) {
-            try {
-                $response->getBody()->write(json_encode($user->update($request->getAttribute('userId'), $request->getParsedBody())));
-                return $response;
-            } catch (Exception $e) {
-                $response->getBody()->write(json_encode(array("e" => $e, "message" => "Ошибка загрузки пользователя")));
-                return $response->withStatus(401);
-            }
-        });
-    });
-
-    $group->group('services', function (RouteCollectorProxy $servicesGroup) use ($service) {
-        $servicesGroup->get('', function (Request $request, Response $response) use ($service) {
-            try {
-                $response->getBody()->write(json_encode($service->getServices($request->getQueryParams(), $request->getAttribute('userId'))));
-                return $response;
-            } catch (Exception $e) {
-                $response->getBody()->write(json_encode(array("e" => $e, "message" => "Ошибка загрузки услуг")));
-                return $response->withStatus(500);
-            }
-        });
-
-        $servicesGroup->get('/filters', function (Request $request, Response $response) use ($service) {
-            try {
-                $response->getBody()->write(json_encode($service->getFilters()));
-                return $response;
-            } catch (Exception $e) {
-                $response->getBody()->write(json_encode(array("e" => $e, "message" => "Ошибка загрузки фильтров")));
-                return $response->withStatus(500);
-            }
-        });
-
-        $servicesGroup->group('/{serviceId}', function (RouteCollectorProxy $serviceGroup) use ($service) {
-            $serviceGroup->get('/favorite', function (Request $request, Response $response) use ($service) {
-                try {
-                    $response->getBody()->write(json_encode($service->setFavorite($request->getAttribute('userId'), $request->getAttribute('serviceId'))));
-                    return $response;
-                } catch (Exception $e) {
-                    $response->getBody()->write(json_encode(array("e" => $e, "message" => "Ошибка добавления в избранное")));
-                    return $response->withStatus(500);
-                }
-            });
-        })->add(function (Request $request, RequestHandler $handler) {
-            $routeContext = RouteContext::fromRequest($request);
-            $route = $routeContext->getRoute();
-            $request = $request->withAttribute('serviceId', $route->getArgument('serviceId'));
-            $response = $handler->handle($request);
-
-            return $response;
         });
     });
 
