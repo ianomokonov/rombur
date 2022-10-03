@@ -21,7 +21,10 @@ const editBlockHandler = (event) => {
   }
 
   if (!isActiveEditableBlock) {
-    document.querySelector(".edit-actions")?.remove();
+    const activeBlock = document.querySelector("[data-content-id].active");
+    if (activeBlock) {
+      setBlockReadOnly(activeBlock);
+    }
   }
 
   if (!editableBlock) {
@@ -103,7 +106,6 @@ function setBlockEditable(block) {
 function onEditActionClick({ target }) {
   const isAccept = target.closest(".edit-actions__action_accept");
   const editBlock = target.closest("[data-content-id]");
-  editBlock.classList.remove("active");
   if (!isAccept) {
     setBlockReadOnly(editBlock);
     return;
@@ -121,6 +123,9 @@ function setBlockReadOnly(block, value) {
   if (!block) {
     return;
   }
+
+  block.querySelector(".edit-actions")?.remove();
+  block.classList.remove("active");
   block.setAttribute("contenteditable", "false");
   const data = contentData?.find((d) => d.id == block.dataset.contentId);
   if (data && value) {
