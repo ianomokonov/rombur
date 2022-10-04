@@ -1,4 +1,5 @@
-import { get, post, put, REFRESH_TOKEN_KEY, TOKEN_KEY } from "./http.js";
+import { get, post, REFRESH_TOKEN_KEY, TOKEN_KEY } from "./http.js";
+import { editBlockHandler, setBlockReadOnly } from "./text-edit.js";
 
 let contentData;
 try {
@@ -9,29 +10,35 @@ try {
 const contentBlocks = document.querySelectorAll("[data-content-id]");
 const authModal = new bootstrap.Modal("#myModal");
 
-const editBlockHandler = (event) => {
-  const editableBlock = event.target.closest("[data-content-id]");
-  const isActiveEditableBlock = event.target.closest(
-    "[data-content-id].active"
-  );
-  const isExitBtn = event.target.closest(".admin-panel__btn");
+const onDocumentClick = ({ target }) => {
+  const editableTextBlock = target.closest("[data-content-id]");
+  const editableImgBlock = target.closest("[data-img-content-id]");
 
-  if (isExitBtn) {
-    setAdmin(false);
-  }
+  const isActiveEditableBlock =
+  editableTextBlock?.classList.contains("active") ||
+    editableImgBlock?.classList.contains("active");
 
-  if (!isActiveEditableBlock) {
-    const activeBlock = document.querySelector("[data-content-id].active");
-    if (activeBlock) {
-      setBlockReadOnly(activeBlock);
-    }
-  }
-
-  if (!editableBlock) {
+  if (isActiveEditableBlock) {
     return;
   }
 
-  setBlockEditable(editableBlock);
+  hideActiveBlocks();
+
+  if (editableTextBlock) {
+    editBlockHandler(editableTextBlock);
+    return;
+  }
+
+  if (editableImgBlock) {
+    console.log("Img!");
+    return;
+  }
+
+  const isExitBtn = target.closest(".admin-panel__btn");
+  if (isExitBtn) {
+    setAdmin(false);
+    return;
+  }
 };
 
 setAdmin(!!sessionStorage.getItem(TOKEN_KEY));
@@ -75,61 +82,19 @@ function setAdmin(isAdmin) {
       div.firstElementChild,
       document.body.firstElementChild
     );
-    document.addEventListener("click", editBlockHandler);
+    document.addEventListener("click", onDocumentClick);
     return;
   }
 
   sessionStorage.removeItem(TOKEN_KEY);
   sessionStorage.removeItem(REFRESH_TOKEN_KEY);
-  document.removeEventListener("click", editBlockHandler);
+  document.removeEventListener("click", onDocumentClick);
   document.querySelector(".admin-panel")?.remove();
 }
 
-function setBlockEditable(block) {
-  block.setAttribute("contenteditable", "true");
-  block.classList.add("active");
-  block.focus();
-
-  const div = document.createElement("div");
-  div.innerHTML = `
-    <div class="d-flex edit-actions">
-        <button class="btn btn-success edit-actions__action edit-actions__action_accept bi bi-check"></button>
-        <button class="btn btn-danger edit-actions__action edit-actions__action_decline bi bi-x"></button>
-    </div>
-  `;
-
-  const editActionsBlock = div.firstElementChild;
-  block.appendChild(editActionsBlock);
-  editActionsBlock.addEventListener("click", onEditActionClick);
-}
-
-function onEditActionClick({ target }) {
-  const isAccept = target.closest(".edit-actions__action_accept");
-  const editBlock = target.closest("[data-content-id]");
-  if (!isAccept) {
-    setBlockReadOnly(editBlock);
-    return;
+function hideActiveBlocks() {
+  const activeTextBlock = document.querySelector("[data-content-id].active");
+  if (activeTextBlock) {
+    setBlockReadOnly(activeTextBlock);
   }
-
-  put("content", {
-    id: editBlock.dataset.contentId,
-    value: editBlock.innerText,
-  }).then(() => {
-    setBlockReadOnly(editBlock, editBlock.innerText);
-  });
-}
-
-function setBlockReadOnly(block, value) {
-  if (!block) {
-    return;
-  }
-
-  block.querySelector(".edit-actions")?.remove();
-  block.classList.remove("active");
-  block.setAttribute("contenteditable", "false");
-  const data = contentData?.find((d) => d.id == block.dataset.contentId);
-  if (data && value) {
-    data.value = value;
-  }
-  block.innerHTML = value || data?.value;
 }
