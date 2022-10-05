@@ -1,0 +1,65 @@
+@font-family: 'Roboto Light', sans-serif;
+
+@font-size-base: 1rem;
+@xs-mod: 0.25;
+@s-mod: 0.5;
+@m-mod: 1.5;
+@l-mod: 2;
+@xl-mod: 2.5;
+
+.font-size(@size) when (@size = xs){
+  font-size: @font-size-base * @xs-mod;
+}
+.font-size(@size) when (@size = s){
+  font-size: @font-size-base * @s-mod;
+}
+.font-size(@size) when (@size = m){
+  font-size: @font-size-base * @m-mod;
+}
+.font-size(@size) when (@size = l){
+  font-size: @font-size-base * @l-mod;
+}
+.font-size(@size) when (@size = xl){
+  font-size: @font-size-base * @xl-mod;
+}
+.font-size(@size) when (isnumber(@size)) and (@size >= 3) {
+  font-size: @font-size-base * @size;
+}
+
+.font-weight-400() {
+  font-weight: 400;
+}
+
+.font-weight-500() {
+  font-weight: 500;
+}
+
+.font-weight-600() {
+  font-weight: 600;
+}
+
+.font-weight-700() {
+  font-weight: 700;
+}
+
+.font-weight-800() {
+  font-weight: 800;
+}
+
+.font-weight-900() {
+  font-weight: 900;
+}
+
+.h1() {
+  .font-size(xl);
+  .font-weight-900();
+}
+.h2() {
+  .font-size(l);
+  .font-weight-700();
+}
+
+body {
+  font-family: @font-family;
+  .font-weight-400();
+}
