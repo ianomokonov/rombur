@@ -66,11 +66,13 @@ class User
             }
         }
 
+        $data = $data == null ? [] : $data;
 
-        $this->setPhotos($imgs);
+
+        $this->setPhotos($imgs, $data);
 
 
-        return true;
+        return $data;
     }
 
     public function login($password)
@@ -146,7 +148,7 @@ class User
         return $tokens;
     }
 
-    private function setPhotos($photos)
+    private function setPhotos($photos, &$result)
     {
         $photoIds = array_keys($photos);
         if ($photoIds == null || count($photoIds) < 1) {
@@ -164,9 +166,10 @@ class User
             );
             $stmt = $this->dataBase->db->prepare($query[0]);
             $stmt->execute($query[1]);
+            $result[$contentId] = $res;
         }
 
-        return true;
+        return $result;
     }
 
     private function unsetPhotos($ids)

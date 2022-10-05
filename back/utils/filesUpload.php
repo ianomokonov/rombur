@@ -8,7 +8,7 @@ class FilesUpload{
             $n = basename($prefix."_".$file['name']);
             $d = $path."/".$n;
             if(move_uploaded_file($file['tmp_name'], $d)){
-                return($baseUrl.$d);
+                return($baseUrl."/".$d);
             }else{
                 throw new Exception('Отсутствует имя файла', 400);
             }

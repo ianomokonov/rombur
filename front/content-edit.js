@@ -75,10 +75,24 @@ const onDocumentClick = ({ target }) => {
           formData.set(contentId, changedData[contentId]);
           return;
         }
-        formData.set(contentId, changedData[contentId], contentId);
+        const nameArr = changedData[contentId].name.split(".");
+        formData.set(
+          contentId,
+          changedData[contentId],
+          `${contentId}.${nameArr[nameArr.length - 1]}`
+        );
       });
 
-      post("content", formData, false).then(() => alert("Изменения сохранены"));
+      post("content", formData, false).then((result) => {
+        Object.keys(result).forEach((contentId) => {
+          const curData = contentData.find((d) => d.id == contentId);
+          if (curData) {
+            curData.value = result[contentId];
+          }
+        });
+        changedData = {};
+        alert("Изменения сохранены");
+      });
     }
 
     return;
