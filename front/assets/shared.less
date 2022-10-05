@@ -1,0 +1,67 @@
+@font-family: 'Roboto Light', sans-serif;
+
+@font-size-base: 1rem;
+@xs-mod: 0.5;
+@s-mod: 0.75;
+@m-mod: 1.25;
+@l-mod: 1.5;
+@xl-mod: 1.75;
+@xxl-mod: 2;
+@3xl-mod: 2.25;
+@4xl-mod: 2.5;
+@5xl-mod: 2.75;
+
+.font-size(@size) when (@size = xs){
+  font-size: @font-size-base * @xs-mod;
+}
+.font-size(@size) when (@size = s){
+  font-size: @font-size-base * @s-mod;
+}
+.font-size(@size) when (@size = m){
+  font-size: @font-size-base * @m-mod;
+}
+.font-size(@size) when (@size = l){
+  font-size: @font-size-base * @l-mod;
+}
+.font-size(@size) when (@size = xl){
+  font-size: @font-size-base * @xl-mod;
+}
+.font-size(@size) when (@size = xxl){
+  font-size: @font-size-base * @xxl-mod;
+}
+.font-size(@size) when (@size = 3xl){
+  font-size: @font-size-base * @3xl-mod;
+}
+.font-size(@size) when (@size = 4xl){
+  font-size: @font-size-base * @4xl-mod;
+}
+.font-size(@size) when (@size = 5xl){
+  font-size: @font-size-base * @5xl-mod;
+}
+.font-size(@size) when (isnumber(@size)) and (@size >= 3) {
+  font-size: @font-size-base * @size;
+}
+
+.font-weight-400() {
+  font-weight: 400;
+}
+
+.font-weight-500() {
+  font-weight: 500;
+}
+
+.font-weight-600() {
+  font-weight: 600;
+}
+
+.font-weight-700() {
+  font-weight: 700;
+}
+
+.font-weight-800() {
+  font-weight: 800;
+}
+
+.font-weight-900() {
+  font-weight: 900;
+}
