@@ -1,11 +1,15 @@
 @font-family: 'Roboto Light', sans-serif;
 
 @font-size-base: 1rem;
-@xs-mod: 0.25;
-@s-mod: 0.5;
-@m-mod: 1.5;
-@l-mod: 2;
-@xl-mod: 2.5;
+@xs-mod: 0.5;
+@s-mod: 0.75;
+@m-mod: 1.25;
+@l-mod: 1.5;
+@xl-mod: 1.75;
+@xxl-mod: 2;
+@3xl-mod: 2.25;
+@4xl-mod: 2.5;
+@5xl-mod: 2.75;
 
 .font-size(@size) when (@size = xs){
   font-size: @font-size-base * @xs-mod;
@@ -21,6 +25,18 @@
 }
 .font-size(@size) when (@size = xl){
   font-size: @font-size-base * @xl-mod;
+}
+.font-size(@size) when (@size = xxl){
+  font-size: @font-size-base * @xxl-mod;
+}
+.font-size(@size) when (@size = 3xl){
+  font-size: @font-size-base * @3xl-mod;
+}
+.font-size(@size) when (@size = 4xl){
+  font-size: @font-size-base * @4xl-mod;
+}
+.font-size(@size) when (@size = 5xl){
+  font-size: @font-size-base * @5xl-mod;
 }
 .font-size(@size) when (isnumber(@size)) and (@size >= 3) {
   font-size: @font-size-base * @size;
@@ -48,18 +64,4 @@
 
 .font-weight-900() {
   font-weight: 900;
-}
-
-.h1() {
-  .font-size(xl);
-  .font-weight-900();
-}
-.h2() {
-  .font-size(l);
-  .font-weight-700();
-}
-
-body {
-  font-family: @font-family;
-  .font-weight-400();
 }
