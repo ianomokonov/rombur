@@ -90,9 +90,9 @@ $app->get('/content', function (Request $request, Response $response) use ($user
 $app->group('/', function (RouteCollectorProxy $group) use ($user) {
 
     $group->group('content', function (RouteCollectorProxy $userGroup) use ($user) {
-        $userGroup->put('', function (Request $request, Response $response) use ($user) {
+        $userGroup->post('', function (Request $request, Response $response) use ($user) {
             try {
-                $response->getBody()->write(json_encode($user->updateContent($request->getParsedBody())));
+                $response->getBody()->write(json_encode($user->updateContent($request->getParsedBody(), $_FILES)));
                 return $response;
             } catch (Exception $e) {
                 $response->getBody()->write(json_encode(array("e" => $e, "message" => "Ошибка изменения контента")));

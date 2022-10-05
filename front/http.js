@@ -7,11 +7,11 @@ export const get = async (url) => {
   return await response.json();
 };
 
-export const post = async (url, body) => {
+export const post = async (url, body, setContentType = true) => {
   const response = await fetch(`${BASIS_URL}/${url}`, {
     method: "POST",
-    headers: getHeaders(),
-    body: JSON.stringify(body),
+    headers: getHeaders(setContentType),
+    body: setContentType ? JSON.stringify(body) : body,
   });
   if (response.ok) {
     return await response.json();
@@ -19,11 +19,11 @@ export const post = async (url, body) => {
   throw new Error(await response.json());
 };
 
-export const put = async (url, body) => {
+export const put = async (url, body, setContentType = true) => {
   const response = await fetch(`${BASIS_URL}/${url}`, {
     method: "PUT",
-    headers: getHeaders(),
-    body: JSON.stringify(body),
+    headers: getHeaders(setContentType),
+    body: setContentType ? JSON.stringify(body) : body,
   });
   if (response.ok) {
     return await response.json();
@@ -31,10 +31,12 @@ export const put = async (url, body) => {
   throw new Error(await response.json());
 };
 
-function getHeaders() {
-  const headers = {
-    "Content-Type": "application/json",
-  };
+function getHeaders(setContentType) {
+  const headers = {};
+
+  if (setContentType) {
+    headers["Content-Type"] = "application/json";
+  }
 
   const token = sessionStorage.getItem(TOKEN_KEY);
 

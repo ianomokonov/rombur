@@ -52,66 +52,24 @@ class User
         return $content;
     }
 
-    public function updateContent($data)
+    public function updateContent($data, $imgs)
     {
-        $request = $this->dataBase->stripAll((array)$data);
-        $id = $request['id'];
-        unset($request['id']);
-        $query = $this->dataBase->genUpdateQuery(
-            $request,
-            "Content",
-            $id
-        );
-
-        $stmt = $this->dataBase->db->prepare($query[0]);
-        $stmt->execute($query[1]);
-        return true;
-    }
-
-    private function getDocumentFile($userId, $documentId)
-    {
-        $query = "SELECT file FROM UserDocument WHERE userId = $userId AND documentId=$documentId";
-        $stmt = $this->dataBase->db->query($query);
-
-        return $stmt->fetch()['file'];
-    }
-
-    public function addDocument($userId, $document, $file)
-    {
-        if (!$file) {
-            throw new Exception('Загрузите файл');
-        }
-        $document = $this->dataBase->stripAll((array)$document);
-        $userFile = $this->getDocumentFile($userId, $document['documentId']);
-        if ($userFile) {
-            $this->fileUploader->removeFile($userFile);
-        }
-        $userFile = $this->fileUploader->upload($file, 'UserFiles', uniqid());
-        $query = $this->dataBase->genInsertQuery(
-            array(
-                "userId" => $userId,
-                "documentId" => $document['documentId'],
-                "file" => $userFile
-            ),
-            "UserDocument"
-        );
-        $stmt = $this->dataBase->db->prepare($query[0]);
-        if ($query[1][0] != null) {
-            $stmt->execute($query[1]);
+        if ($data != null) {
+            foreach (array_keys($data) as $contentId) {
+                $query = $this->dataBase->genUpdateQuery(
+                    array("value" => $data[$contentId]),
+                    "Content",
+                    $contentId
+                );
+                $stmt = $this->dataBase->db->prepare($query[0]);
+                $stmt->execute($query[1]);
+            }
         }
 
-        return $userFile;
-    }
 
-    public function deleteDocument($userId, $documentId)
-    {
-        $documentId = $this->dataBase->strip($documentId);
-        $userFile = $this->getDocumentFile($userId, $documentId);
-        if ($userFile) {
-            $this->fileUploader->removeFile($userFile);
-            $query = "DELETE FROM UserDocument WHERE userId=$userId AND documentId=$documentId";
-            $this->dataBase->db->query($query);
-        }
+        $this->setPhotos($imgs);
+
+
         return true;
     }
 
@@ -186,5 +144,40 @@ class User
         $tokens = $this->token->encode(array("id" => $userId));
         $this->addRefreshToken($tokens[1], $userId);
         return $tokens;
+    }
+
+    private function setPhotos($photos)
+    {
+        $photoIds = array_keys($photos);
+        if ($photoIds == null || count($photoIds) < 1) {
+            return;
+        }
+
+        $this->unsetPhotos($photoIds);
+
+        foreach ($photoIds as $contentId) {
+            $res = $this->fileUploader->upload($photos[$contentId], 'Images', uniqid(), $this->baseUrl);
+            $query = $this->dataBase->genUpdateQuery(
+                array("value" => $res),
+                "Content",
+                $contentId
+            );
+            $stmt = $this->dataBase->db->prepare($query[0]);
+            $stmt->execute($query[1]);
+        }
+
+        return true;
+    }
+
+    private function unsetPhotos($ids)
+    {
+        $ids = implode(", ", $ids);
+        $stmt = $this->dataBase->db->query("select value from Content where id IN ($ids)");
+
+        while ($url = $stmt->fetch()) {
+            $this->fileUploader->removeFile($url['value'], $this->baseUrl);
+        }
+
+        return true;
     }
 }
