@@ -57,8 +57,121 @@
     <section data-name="about"></section>
     <section data-name="types"></section>
     <section data-name="arrangement_prices"></section>
-    <section data-name="drilling_prices"></section>
-    <section data-name="finally_prices"></section>
+    <section data-name="drilling_prices" class="py-5 drilling_prices">
+      <div class="container">
+        <div class="row">
+          <div class="col-8">
+            <div class="section-header mb-4">
+              <div class="section-header__subtitle">Цена бурения</div>
+              <h2 class="section-header__title">
+                Цена за метр бурения скважины малогабаритной установкой
+              </h2>
+            </div>
+            <p class="mb-5">
+              Минимальная стоимость бурения скважины глубиной до 30 метров
+              малогабаритной буровой установкой составляет 100000 рублей
+            </p>
+          </div>
+          <div class="col-4"></div>
+          <div class="col-12" style="overflow-x: auto">
+            <table>
+              <thead class="bg-dark text-white">
+                <tr>
+                  <th scope="col">Обсадные трубы</th>
+                  <th scope="col">Гарантия</th>
+                  <th scope="col">Цена</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td>
+                    Пластиковые обсадные трубы НПВХ d125мм + d 90мм для питьевой
+                    воды
+                  </td>
+                  <td>до 5 лет</td>
+                  <td>от 3000 р/м</td>
+                </tr>
+                <tr>
+                  <td>
+                    Сталь СТ- 20 (4мм) d133мм + ПНД (НПВХ) d113мм/d117мм
+                    (пластик для питьевой воды - 1 сорт)
+                  </td>
+                  <td>до 10 лет</td>
+                  <td>от 3500 р/м</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+    </section>
+    <section data-name="price-components" class="pb-5">
+      <div class="container p-0">
+        <div class="row justify-content-center">
+          <div class="col-md-10">
+            <div class="row">
+              <div class="col-6">
+                <div class="section-header mb-4">
+                  <div class="section-header__subtitle">Факторы цены</div>
+                  <h2 class="section-header__title">
+                    Что влияет на итоговую стоимость обустройства скважины?
+                  </h2>
+                </div>
+              </div>
+              <div class="col-6">
+                <p>
+                  Стоимость скважины на воду с обустройством под ключ
+                  рассчитывается индивидуально в каждом отдельном случае
+                </p>
+                <p>
+                  На итоговую стоимость обустройства скважины (подключение с
+                  оборудованием и расходными материалами) напрямую влияют
+                  следующие основные факторы:
+                </p>
+              </div>
+              <div class="col-12 price-components">
+                <div class="price-component">
+                  <span>1</span>
+                  Глубина пробуренной артезианской скважины ( ее характеристики
+                  по паспорту)
+                </div>
+                <div class="price-component">
+                  <span>2</span>
+                  Выбор производителя и марки скважинного погружного насоса
+                </div>
+                <div class="price-component">
+                  <span>3</span>
+                  Расстояние от источника до дома, бани, другого здания (при
+                  необходимости ввода)
+                </div>
+                <div class="price-component">
+                  <span>4</span>
+                  Объем необходимого гидроаккумулятора (кессон, адаптер)
+                </div>
+                <div class="price-component">
+                  <span>5</span>
+                  Время года проведения монтажных работ, сезонность
+                </div>
+                <div class="price-component">
+                  <span>6</span>
+                  Район Подмосковья, где необходимо обустроить скважину
+                </div>
+                <div class="price-component">
+                  <span>7</span>
+                  Необходимость установки дополнительного водоснабжающего
+                  оборудования и фитингов по желанию заказчика (фильтра,
+                  запорная арматура)
+                </div>
+                <div class="price-component">
+                  <span>8</span>
+                  Проведение дополнительных работ при необходимости
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
     <section data-name="drilling_rig" class="py-5 drilling_rig">
       <div class="container p-0">
         <div class="row justify-content-center">
@@ -101,22 +214,22 @@
     </section>
     <section data-name="info_block" class="py-5">
       <div class="container">
-        <div class="row mb-5">
-          <div class="col-6">
-            <div class="section-header">
-              <div class="section-header__subtitle">Горячая линия</div>
-              <h2 class="section-header__title m-0">Позвоните нам</h2>
-            </div>
-          </div>
-          <div class="col-6 d-flex align-items-end justify-content-end">
-            <span class="info-phone-number">8 925-277-69-25</span>
-          </div>
-        </div>
         <div class="row justify-content-center">
           <div class="col-9">
             <div class="row">
+              <div class="col-5 mb-5 ps-0">
+                <div class="section-header">
+                  <div class="section-header__subtitle">Горячая линия</div>
+                  <h2 class="section-header__title m-0">Позвоните нам</h2>
+                </div>
+              </div>
+              <div
+                class="col-7 mb-5 pe-0 d-flex align-items-end justify-content-end"
+              >
+                <span class="info-phone-number">8 925-277-69-25</span>
+              </div>
               <div class="col-4 phone-reason">
-                <div class="phone-reason__title mb-1">Заказ</div>
+                <div class="phone-reason__title mb-1">Оформить заказ</div>
                 <div class="phone-reason__info">
                   Заказать бурение скважины на воду малогабаритной установкой в
                   Московской области
@@ -127,7 +240,7 @@
                 />
               </div>
               <div class="col-4 phone-reason">
-                <div class="phone-reason__title mb-1">Детали</div>
+                <div class="phone-reason__title mb-1">Уточнить детали</div>
                 <div class="phone-reason__info">
                   Уточнить глубину артезианской скважины, стоимость бурения и
                   обустройства скважины именно в Вашем районе Подмосковья,
@@ -140,7 +253,7 @@
               </div>
 
               <div class="col-4 phone-reason">
-                <div class="phone-reason__title mb-1">Инженер-констультант</div>
+                <div class="phone-reason__title mb-1">Вызвать иженера</div>
                 <div class="phone-reason__info">
                   Заказать бесплатный выезд инженера-констультанта на место
                   планируемых буровых и монтажных работ
@@ -155,7 +268,7 @@
         </div>
       </div>
     </section>
-    <section class="row our-work">
+    <section class="row m-0 our-work">
       <div
         class="col-xl-3 d-flex align-items-center justify-content-center our-work__title"
       >
