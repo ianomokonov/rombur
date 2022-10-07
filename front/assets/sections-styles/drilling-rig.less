@@ -1,0 +1,22 @@
+section.drilling_rig {
+  position: relative;
+  background-image: url(https://aquaionbur.ru/sites/default/files/2022-04/bg-dotted.png);
+  background-position: right top;
+  background-repeat: repeat-y;
+  background-size: contain;
+  background-attachment: fixed;
+  &::before {
+    position: absolute;
+    z-index: 1;
+    top: 0;
+    left: 0;
+    width: 88px;
+    height: 100%;
+    content: "";
+    opacity: 0.8;
+    background: url(https://aquaionbur.ru/themes/contrib/vartheme_bs5/images/frontpage/drilling-bits.png);
+    background-repeat: no-repeat;
+    background-position: center left;
+    background-size: initial;
+  }
+}

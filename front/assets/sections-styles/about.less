@@ -1,0 +1,25 @@
+.about {
+  position: relative;
+  background-position: right top;
+  background-repeat: no-repeat;
+  background-size: auto;
+  &__background-gradient_left {
+    top: 0;
+    right: 0;
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background-image: linear-gradient(to right, rgba(255,255,255,1), rgba(0,0,0,0));
+  }
+  &__background-gradient_bottom {
+    top: 0;
+    right: 0;
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background-image: linear-gradient(to top, rgba(255,255,255,0.85), rgba(0,0,0,0));
+  }
+  .container {
+    position: relative;
+  }
+}
