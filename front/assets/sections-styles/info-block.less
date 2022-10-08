@@ -1,0 +1,36 @@
+@import "../colors";
+@import "../global";
+
+.info-phone-number {
+  font-size: 3rem;
+  .font-weight-700();
+  line-height: 3rem;
+  color: @color-success;
+}
+
+.phone-reason {
+  position: relative;
+  padding: 1rem;
+  height: 16rem;
+  border: 1px solid @color-success;
+
+  &:not(:last-child) {
+    border-right: none;
+  }
+
+  &__title {
+    .font-size(m);
+  }
+
+  &__info {
+    font-size: 0.875em;
+  }
+
+  &__img {
+    position: absolute;
+    width: 2.6rem;
+    height: auto;
+    bottom: 1rem;
+    left: 1rem;
+  }
+}

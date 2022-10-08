@@ -23,9 +23,6 @@
       rel="stylesheet"
     />
     <link rel="stylesheet/less" type="text/css" href="style.less" />
-    <link rel="stylesheet/less" type="text/css" href="assets/shared.less" />
-    <link rel="stylesheet/less" type="text/css" href="assets/global.less" />
-    <link rel="stylesheet/less" type="text/css" href="assets/colors.less" />
     <script src="https://cdn.jsdelivr.net/npm/less"></script>
     <!-- JavaScript Bundle with Popper -->
     <script
@@ -35,28 +32,207 @@
     ></script>
   </head>
   <body>
-    <header data-name="header">
-      <div class="p-3">
+    <header class="container">
+      <div class="header py-3">
         <div class="row">
-          <div class="col-6"><span data-content-id="1">РОМБУР</span></div>
-          <div class="col-6"><h5 data-content-id="2">Привет!</h5></div>
-          <div
-            data-img-content-id="3"
-            style="
-              background-position: center;
-              background-size: cover;
-              width: 100px;
-              height: 60px;
-              background-image: url(./assets/logo_rombur_final.png);
-            "
-          ></div>
+          <div class="col-3">
+            <div class="header__logo" data-img-content-id="3"
+            ></div>
+          </div>
+          <div class="col-5">
+            <div class="header__center">
+              <h3 data-content-id="1">РОМБУР</h3>
+              <span data-content-id="2">
+                Бурение, обустройство артезианских скважин на воду под ключ | Профессиональный монтаж систем автономного водоснабжения в загородных домах, на дачных участках - Москва | Московская область
+              </span>
+            </div>
+          </div>
+          <div class="col-4">
+            <div class="header__contacts">
+              <div class="header__contacts_phone">
+                <div class="pe-1">Звоните:</div>
+                <a>8 (925)-277-69-25</a>
+              </div>
+              <span>Московская область - Ступино, Михнево, Малино, Чехов, Раменское, Бронницы, Домодедово, Кашира, Серпухов, Воскресенск, Коломна, Подольск</span>
+              <span>C 9:00 до 20:00</span>
+            </div>
+          </div>
         </div>
       </div>
     </header>
-    <menu data-name="menu"></menu>
-    <section data-name="about"></section>
-    <section data-name="types"></section>
-    <section data-name="arrangement_prices"></section>
+    <section data-name="menu" class="menu">
+      <div class="menu__items container">
+        <a class="py-3">Главная</a>
+        <a class="py-3">Наши услуги</a>
+        <a class="py-3">Фотоальбом</a>
+        <a class="py-3">Цены на бурение скважин</a>
+        <a class="py-3">Контакты</a>
+      </div>
+    </section>
+    <section data-name="about" class="about py-5" style="background-image: url('assets/images/content-bg.jpg')">
+      <div class="about__background-gradient_left"></div>
+      <div class="about__background-gradient_bottom"></div>
+      <div class="container">
+        <div class="row">
+          <div class="col-6">
+            <div class="section-header">
+              <div class="section-header__subtitle">Наши услуги</div>
+              <h2 class="section-header__title">
+                Бурение скважин в московской области
+              </h2>
+            </div>
+          </div>
+          <div class="col-6">
+            Наша компания РОМБУР предлагает бурение скважин на воду малогабаритными буровыми установками (МГБУ) по оптимальным ценам в Москве и Московской области, осуществляем профессиональное обустройство (подключение) артезианских скважин под ключ с кессонами, скважинным адаптером, летний вариант по реальной стоимости в загородных домах, на дачных и садовых участках в Подмосковье.
+          </div>
+        </div>
+        <div class="row mt-5">
+          <div class="col-6">
+            Малогабаритная буровая установка (МГБУ) предназначена для бурения водозаборных скважин глубиной до 100 метров. Применяется МГБУ на участках, где въезд крупногабаритного оборудования не возможен или может нанести серьезный урон ландшафту. Установку используют для добычи и поиска артезианской воды. Бурение производится вращательным способом с использованием и колонкового инструмента, с промывкой и продувкой.
+          </div>
+          <div class="col-6">
+            <div class="section-header">
+              <div class="section-header__subtitle">Наша техника</div>
+              <h2 class="section-header__title">
+                Малогабаритная буровая установка
+              </h2>
+            </div>
+          </div>
+        </div>
+        <div class="row mt-5">
+          <div class="col-6">
+            <div class="section-header">
+              <div class="section-header__subtitle">Наша география</div>
+              <h2 class="section-header__title">
+                Московская область (юг, юго-восток)
+              </h2>
+            </div>
+          </div>
+          <div class="col-6">
+            Компания РОМБУР оказывает услуги по бурению и обустройству водяных скважин на известняк малогабаритной буровой техникой (МГБУ) на юге и юго-востоке Московской области, в таких городах и поселках как: Норо-Фоминский р-н, Малино, Михнево, Бронницы, Раменское, Домодедово, Воскресенск, Чехов, Подольск, Видное, Люберцы, Серпухов, Коломна, Жуковский, Гжель.
+          </div>
+        </div>
+        <div class="row mt-5">
+          <div class="col-6">
+            Выезд бурового мастера на участок осуществляется в любое удобное время по договоренности с заказчиком. Заключается договор с предоплатой 5000 рублей, и обговаривается день начала производства буровых работ. После окончания бурения скважины, мы прокачиваем скважину до визуально чистой воды. После сдачи работ заказчику выдается паспорт с указанием технических характеристик скважины и фактическая глубина.
+          </div>
+          <div class="col-6">
+            <div class="section-header">
+              <div class="section-header__subtitle">Выезд мастера</div>
+              <h2 class="section-header__title">
+                По договорености
+              </h2>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+    <section data-name="types" class="py-5">
+      <div class="container">
+        <div class="section-header">
+          <div class="section-header__subtitle">Виды скважин</div>
+          <h2 class="section-header__title">
+            Выделяют три вида скважин на воду
+          </h2>
+        </div>
+        <table class="w-100">
+          <tr>
+            <th scope="col">Артезианские скважины</th>
+            <th>По технологии бурения до известняка, долговечны. Глубина залегания воды в среднем от 30 до 150 метров, зависит от района, но в редких исключениях встречаются и 15, и 200 метров. Фильтр не требуется. Дебит большой - от 3 м3/час. Время службы не ограничено. Гарантия до 12 лет, в зависимости от конструкции. Вода из такого источника полезна, т.к. богата природными минералами и не содержит микроорганизмов. Ее можно пить без кипячения. Монтаж водяной скважины будет не дешевым, но, учитывая отсутствие затрат на дальнейшее обслуживание, его стоимость хоть и выше, но вполне оправдана. Отлично подойдет для водоснабжения загородного дома.</th>
+          </tr>
+          <tr>
+            <th scope="col">Скважины на песок</th>
+            <th>Бурение до глубокого песка, в нижней части устанавливается фильтр. Глубина от 20 до 80 метров. Важно часто прокачивать, т.к. при редком использовании заиливаются и требуют периодической чистки специальным оборудованием. Дебит до 1 куб.литра воды/час. Эксплуатация от 3 до 10 лет. Гарантия 1 год. В виду наличия микроорганизмов, воду из скважины на песок для питья необходимо кипятить. Находятся в среднем ценовом диапазоне и подойдут, если вы ограничены в средствах при строительстве дома.</th>
+          </tr>
+          <tr>
+            <th scope="col">Абиссинские скважины</th>
+            <th>Аналог дачного колодца, но с меньшим запасом воды. Процесс бурения скважины выполняется несамоходной малогабаритной установкой методом прокола. Являются низкодебитными  (до 0.5 куб.л./час) и подходят для летнего использования, но в сильную жару могут пересыхать. Прослужит до 60 мес. Пополняются талыми и грунтовыми водами. Есть риск попадания загрязнения из септиков, стоков канализации и выгребных ям. Требует обязательной фильтрации и кипячения. Это самый низкозатратный вариант загородного водоснабжения дачи.</th>
+          </tr>
+        </table>
+      </div>
+    </section>
+    <section data-name="arrangement_examples">
+      <div class="container">
+        <div class="arrangement-examples__image">
+          <img src="assets/images/arrangement.png" alt="Варианты обустройства">
+        </div>
+      </div>
+    </section>
+    <section data-name="arrangement_prices" class="arrangement-prices py-5">
+      <div class="container">
+        <div class="section-header">
+          <div class="section-header__subtitle">Цены на обустройство</div>
+          <h2 class="section-header__title">
+            Стоимость обустройства скважины на воду под ключ
+          </h2>
+        </div>
+        <div class="row">
+          <div class="col-6">
+            <div class="arrangement-prices__image">
+              <img src="assets/images/summer.png" alt="Пример скважины">
+            </div>
+          </div>
+          <div class="col-6">
+            <div class="text">
+              <div class="section-header">
+                <div class="section-header__subtitle">Летнее обустройство скважины</div>
+                <h2 class="section-header__title">
+                  От 45.000 рублей
+                </h2>
+              </div>
+              <div>
+                Стоимость подлючения зависит от глубины скважины, выбора производителя скважинного насоса
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="row py-5">
+          <div class="col-6">
+            <div class="text">
+              <div class="section-header">
+                <div class="section-header__subtitle">Обустройство скважины с адаптером</div>
+                <h2 class="section-header__title">
+                  От 90.000 рублей
+                </h2>
+              </div>
+              <div>
+                Итоговая стоимость обустройства зависит от глубины скважины, расстояния до места ввода водопровода в помещение, выбора производителя скважинного насоса и оборудования
+              </div>
+            </div>
+          </div>
+          <div class="col-6">
+            <div class="arrangement-prices__image">
+              <img src="assets/images/adapter.png" alt="Пример скважины">
+            </div>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-6">
+            <div class="arrangement-prices__image">
+              <img src="assets/images/kesson.png" alt="Пример скважины">
+            </div>
+          </div>
+          <div class="col-6">
+            <div class="text">
+              <div class="section-header">
+                <div class="section-header__subtitle">Обустройство скважины с кессоном</div>
+                <h2 class="section-header__title">
+                  От 135.000 рублей
+                </h2>
+              </div>
+              <div class="d-flex flex-column">
+                <div>
+                  Окончательная стоимость подключения зависит от глубины скважины, выбора водоснабжающего оборудования, расстояния до места ввода водопроводной сети (при необходимости)
+                </div>
+                <i>Металлический кессон - d1000мм x h2000мм х d2 = 650мм</i>
+                <i><b>толщина стали 4 мм</b></i>
+                <b>(обработан антикоррозийным покрытием)</b>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
     <section data-name="drilling_prices" class="py-5 drilling_prices">
       <div class="container">
         <div class="row">
@@ -282,7 +458,7 @@
       ></div>
       <div
         class="col-xl-3 our-work__img"
-        style="background-image: url(./assets/photo.png)"
+        style="background-image: url(assets/images/photo.png)"
       ></div>
       <div
         class="col-xl-3 our-work__img"

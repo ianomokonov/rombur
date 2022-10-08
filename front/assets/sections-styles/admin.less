@@ -1,0 +1,53 @@
+[data-content-id],
+[data-img-content-id] {
+  position: relative;
+}
+
+[data-img-content-id] {
+  .edit-img-btn {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    display: none;
+    justify-content: center;
+    align-items: center;
+    background-color: rgba(0, 0, 0, 0.5);
+    color: white;
+    cursor: pointer;
+  }
+}
+
+.admin {
+  [data-img-content-id]:hover {
+    .edit-img-btn {
+      display: flex;
+    }
+  }
+}
+
+.edit-actions {
+  position: absolute;
+  right: 0;
+  top: 100%;
+
+  &__action {
+    padding: 0;
+    width: 2rem;
+    height: 2rem;
+    font-size: 2rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    &::before {
+      display: block;
+    }
+  }
+}
+
+.admin-panel {
+  background-color: rgb(189, 5, 5);
+  color: white;
+}

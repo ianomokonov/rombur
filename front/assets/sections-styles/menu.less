@@ -1,0 +1,19 @@
+@import "../colors";
+
+.menu {
+  background: @color-light;
+  border-bottom: 1px solid @color-dark;
+  &__items {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    a {
+      color: @color-dark;
+      text-decoration: none;
+      &:hover {
+        cursor: pointer;
+        color: @color-green;
+      }
+    }
+  }
+}
