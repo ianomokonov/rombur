@@ -6,6 +6,9 @@ section.drilling_rig {
   background-size: contain;
   background-attachment: fixed;
   &::before {
+    @media (max-width: 767.98px) {
+      content: none;
+    }
     position: absolute;
     z-index: 1;
     top: 0;

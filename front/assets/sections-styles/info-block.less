@@ -2,7 +2,16 @@
 @import "../global";
 
 .info-phone-number {
-  font-size: 3rem;
+  .font-size(3);
+  @media (max-width: 1199.98px) {
+    .font-size(xxl);
+  }
+  @media (max-width: 767.98px) {
+    .font-size(3);
+  }
+  @media (max-width: 575.98px) {
+    .font-size(xxl);
+  }
   .font-weight-700();
   line-height: 3rem;
   color: @color-success;
@@ -14,8 +23,16 @@
   height: 16rem;
   border: 1px solid @color-success;
 
-  &:not(:last-child) {
-    border-right: none;
+  @media (max-width: 991.98px) {
+    &:not(:last-child) {
+      border-bottom: none;
+    }
+  }
+
+  @media (min-width: 992px) {
+    &:not(:last-child) {
+      border-right: none;
+    }
   }
 
   &__title {
