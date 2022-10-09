@@ -30,7 +30,12 @@ imgContentBlocks.forEach((block) => {
     (d) => d.id == block.dataset.imgContentId
   );
   if (blockData) {
-    block.style.backgroundImage = `url(${blockData.value})`;
+    const img = block.querySelector("img");
+    if (img) {
+      img.src = blockData.value;
+    } else {
+      block.style.backgroundImage = `url(${blockData.value})`;
+    }
   }
 
   const div = document.createElement("div");
@@ -199,13 +204,17 @@ function onUploadFileClick(block) {
     const reader = new FileReader();
 
     reader.onload = ({ target }) => {
+      const img = block.querySelector("img");
+      if (img) {
+        img.src = target.result.toString();
+        return;
+      }
       block.style.backgroundImage = `url(${target.result.toString()})`;
     };
 
     reader.readAsDataURL(file);
 
     changedData[block.dataset.imgContentId] = file;
-    console.log(changedData);
     fileInput.remove();
   });
 
