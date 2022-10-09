@@ -6,7 +6,7 @@
     background-size: cover;
     width: 220px;
     height: 150px;
-    background-image: url('../images/logo_rombur_final.png');
+    background-image: url("/front/assets/images/logo_rombur_final.png");
   }
   &__center {
     display: flex;
@@ -28,5 +28,10 @@
     span {
       text-align: end;
     }
+  }
+
+  span {
+    .font-size(s);
+    .font-weight-500();
   }
 }

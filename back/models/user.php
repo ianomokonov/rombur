@@ -54,22 +54,34 @@ class User
 
     public function updateContent($data, $imgs)
     {
+        $content = $this->readContent();
         if ($data != null) {
             foreach (array_keys($data) as $contentId) {
-                $query = $this->dataBase->genUpdateQuery(
-                    array("value" => $data[$contentId]),
-                    "Content",
-                    $contentId
-                );
+                $query = [];
+                if (array_search($contentId, array_column($content, 'id'))) {
+                    $query = $this->dataBase->genUpdateQuery(
+                        array("value" => $data[$contentId]),
+                        "Content",
+                        $contentId
+                    );
+                } else {
+                    $query = $this->dataBase->genInsertQuery(
+                        array("value" => $data[$contentId]),
+                        "Content"
+                    );
+                }
+
                 $stmt = $this->dataBase->db->prepare($query[0]);
-                $stmt->execute($query[1]);
+                if ($query[1][0] != null) {
+                    $stmt->execute($query[1]);
+                }
             }
         }
 
         $data = $data == null ? [] : $data;
 
 
-        $this->setPhotos($imgs, $data);
+        $this->setPhotos($content, $imgs, $data);
 
 
         return $data;
@@ -148,7 +160,7 @@ class User
         return $tokens;
     }
 
-    private function setPhotos($photos, &$result)
+    private function setPhotos($content, $photos, &$result)
     {
         $photoIds = array_keys($photos);
         if ($photoIds == null || count($photoIds) < 1) {
@@ -159,13 +171,24 @@ class User
 
         foreach ($photoIds as $contentId) {
             $res = $this->fileUploader->upload($photos[$contentId], 'Images', uniqid(), $this->baseUrl);
-            $query = $this->dataBase->genUpdateQuery(
-                array("value" => $res),
-                "Content",
-                $contentId
-            );
+            $query = [];
+            if (array_search($contentId, array_column($content, 'id'))) {
+                $query = $this->dataBase->genUpdateQuery(
+                    array("value" => $res),
+                    "Content",
+                    $contentId
+                );
+            } else {
+                $query = $this->dataBase->genInsertQuery(
+                    array("id" => $contentId, "value" => $res),
+                    "Content"
+                );
+            }
+
             $stmt = $this->dataBase->db->prepare($query[0]);
-            $stmt->execute($query[1]);
+            if ($query[1][0] != null) {
+                $stmt->execute($query[1]);
+            }
             $result[$contentId] = $res;
         }
 
