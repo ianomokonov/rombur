@@ -66,10 +66,12 @@ class User
                     );
                 } else {
                     $query = $this->dataBase->genInsertQuery(
-                        array("value" => $data[$contentId]),
+                        array("id" => $contentId, "value" => $data[$contentId]),
                         "Content"
                     );
                 }
+
+                return array(array_search($contentId, array_column($content, 'id')), $contentId, $content);
 
                 $stmt = $this->dataBase->db->prepare($query[0]);
                 if ($query[1][0] != null) {
