@@ -1,0 +1,471 @@
+html {
+  font-size: 18px;
+}
+@media (max-width: 575.98px) {
+  html {
+    font-size: 16px;
+  }
+}
+body {
+  font-family: "Roboto", sans-serif;
+  font-weight: 400;
+  font-size: 1rem;
+  min-width: 300px;
+}
+h1 {
+  font-size: 2.25rem;
+  font-size: 3rem;
+  font-weight: 900;
+}
+h2 {
+  font-size: 2rem;
+  font-weight: 700;
+}
+h3 {
+  font-size: 1.75rem;
+  font-weight: 900;
+}
+h4 {
+  font-size: 1.5rem;
+  font-weight: 900;
+}
+h5 {
+  font-size: 1.75rem;
+  font-weight: 500;
+}
+h6 {
+  font-size: 1.5rem;
+  font-weight: 500;
+}
+small {
+  font-size: 0.5rem;
+  font-weight: 400;
+}
+a {
+  text-decoration: none;
+}
+table th,
+table td {
+  padding: 0.5rem 1rem;
+  border-right: 1px solid #32bf3d;
+  font-weight: 400;
+}
+table th:last-child,
+table td:last-child {
+  border-right: none;
+}
+table th:last-child:not(:nth-child(2)),
+table td:last-child:not(:nth-child(2)) {
+  white-space: nowrap;
+}
+table tbody tr:nth-child(2n) {
+  background-color: #dfe6f3;
+}
+@media (max-width: 575.98px) {
+  .section-header__title {
+    font-size: 1.5rem;
+  }
+}
+.section-header__subtitle {
+  font-size: 1.25rem;
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+}
+.section-header__subtitle:after {
+  position: absolute;
+  right: -4rem;
+  width: 3rem;
+  height: 2px;
+  content: "";
+  border-radius: 10px;
+  background: #32bf3d;
+}
+@media (max-width: 575.98px) {
+  .section-header__subtitle.no-line:after {
+    content: none;
+  }
+}
+.background-container {
+  background-position: right top;
+  background-repeat: no-repeat;
+  background-size: auto;
+  position: relative;
+}
+@media (max-width: 575.98px) {
+  .background-container {
+    background-image: none !important;
+  }
+}
+.bg-dark {
+  background-color: #000000;
+}
+.text-primary {
+  color: #32bf3d !important;
+}
+.text-secondary {
+  color: #fff !important;
+}
+.z-1 {
+  z-index: 1;
+}
+.z-2 {
+  z-index: 2;
+}
+.fs-5rem {
+  font-size: 5rem !important;
+}
+.header__logo {
+  background-position: center;
+  background-size: contain;
+  background-repeat: no-repeat;
+  max-width: 100%;
+  height: 100%;
+  aspect-ratio: auto 482/294;
+}
+.header__center {
+  height: 100%;
+}
+@media (min-width: 768px) {
+  .header__center {
+    padding-top: 50px;
+  }
+}
+.header__contacts {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+}
+.header__contacts_phone {
+  display: flex;
+  align-items: flex-start;
+  min-height: 50px;
+}
+.header__contacts_phone a {
+  font-weight: 500;
+}
+@media (max-width: 767.98px) {
+  .header__contacts {
+    align-items: flex-start;
+  }
+  .header__contacts_phone {
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: center;
+    padding: 1rem 0;
+  }
+}
+.header span {
+  font-size: 0.75rem;
+  font-weight: 500;
+}
+@media (min-width: 768px) {
+  .header span {
+    text-align: end;
+  }
+}
+@media (max-width: 767.98px) {
+  .header span {
+    font-size: 1rem;
+    font-weight: normal;
+  }
+}
+.menu {
+  background: #f8f9fa;
+  border-bottom: 1px solid #171b21;
+}
+.menu__items {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.menu__items a {
+  color: #171b21;
+  text-decoration: none;
+}
+.menu__items a:hover {
+  cursor: pointer;
+  color: #32bf3d;
+}
+.about {
+  position: relative;
+}
+.about .container {
+  position: relative;
+}
+.banner {
+  position: relative;
+}
+.banner .container {
+  position: relative;
+}
+.banner__white {
+  top: 0;
+  left: 0;
+  position: absolute;
+  width: 0;
+  height: 100%;
+  background-color: #fff;
+}
+@media (max-width: 767.98px) {
+  .banner__white {
+    width: 100%;
+  }
+}
+.banner__image {
+  width: 100%;
+  height: 600px;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  box-shadow: 28px 27px #000000;
+}
+.banner__content {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+.banner__content .btn-primary {
+  background-color: #32bf3d;
+  border-color: #32bf3d;
+}
+.banner__content .btn-primary:hover,
+.banner__content .btn-primary:active {
+  background-color: #171b21;
+  border-color: #171b21;
+}
+.types__container_mobile.column {
+  padding-left: 0.5rem;
+  padding-right: 0.5rem;
+}
+.types__container_mobile.column__header {
+  text-align: center;
+  padding-top: 0.5rem;
+  padding-bottom: 0.5rem;
+  border-bottom: 1px solid #32bf3d;
+}
+.types__container_mobile.column__content {
+  text-align: justify;
+  padding-bottom: 1rem;
+}
+.types__container_mobile.column:nth-child(2n) {
+  background-color: #dfe6f3;
+}
+[data-content-id],
+[data-img-content-id] {
+  position: relative;
+}
+[data-img-content-id] .edit-img-btn {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  display: none;
+  justify-content: center;
+  align-items: center;
+  background-color: rgba(0, 0, 0, 0.5);
+  color: white;
+  cursor: pointer;
+}
+.admin [data-img-content-id]:hover .edit-img-btn {
+  display: flex;
+}
+.edit-actions {
+  position: absolute;
+  right: 0;
+  top: 100%;
+}
+.edit-actions__action {
+  padding: 0;
+  width: 2rem;
+  height: 2rem;
+  font-size: 2rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.edit-actions__action::before {
+  display: block;
+}
+.admin-panel {
+  background-color: #bd0505;
+  color: white;
+}
+.drilling_prices {
+  position: relative;
+}
+.drilling_prices::before {
+  position: absolute;
+  z-index: 1;
+  top: 0;
+  right: 0;
+  width: 350px;
+  height: 50%;
+  content: "";
+  background: url(https://aquaionbur.ru/themes/contrib/vartheme_bs5/images/frontpage/price-background-image.png);
+  background-repeat: no-repeat;
+  background-position: center left;
+  background-size: initial;
+}
+@media (max-width: 767.98px) {
+  .drilling_prices::before {
+    content: none;
+  }
+}
+section.drilling_rig {
+  position: relative;
+  background-image: url(https://aquaionbur.ru/sites/default/files/2022-04/bg-dotted.png);
+  background-position: right top;
+  background-repeat: repeat-y;
+  background-size: contain;
+  background-attachment: fixed;
+}
+section.drilling_rig::before {
+  position: absolute;
+  z-index: 1;
+  top: 0;
+  left: 0;
+  width: 88px;
+  height: 100%;
+  content: "";
+  opacity: 0.8;
+  background: url(https://aquaionbur.ru/themes/contrib/vartheme_bs5/images/frontpage/drilling-bits.png);
+  background-repeat: no-repeat;
+  background-position: center left;
+  background-size: initial;
+}
+@media (max-width: 767.98px) {
+  section.drilling_rig::before {
+    content: none;
+  }
+}
+footer {
+  color: #adb5bd;
+}
+footer .footer-menu {
+  border-color: #adb5bd;
+}
+footer .copyright {
+  font-size: 0.875rem;
+}
+.info-phone-number {
+  font-size: 2rem;
+  font-weight: 700;
+  text-decoration: none;
+  line-height: 2rem;
+  color: #32bf3d;
+}
+@media (max-width: 575.98px) {
+  .info-phone-number {
+    font-size: 1.75rem;
+  }
+}
+.phone-reason {
+  position: relative;
+  padding: 1rem;
+  height: 16rem;
+  border: 1px solid #32bf3d;
+}
+@media (max-width: 991.98px) {
+  .phone-reason {
+    height: auto;
+    padding-bottom: 4.6rem;
+  }
+}
+@media (min-width: 992px) {
+  .phone-reason:not(:last-child) {
+    border-right: none;
+  }
+}
+.phone-reason__title {
+  font-size: 1.25rem;
+}
+.phone-reason__info {
+  font-size: 0.875em;
+}
+.phone-reason__img {
+  position: absolute;
+  bottom: 1rem;
+  left: 1rem;
+}
+.phone-reason__img img {
+  width: 2.6rem;
+  height: auto;
+}
+.our-work {
+  align-items: stretch;
+}
+.our-work__title {
+  color: #32bf3d;
+  font-size: 2rem;
+  background-color: #1b3144;
+}
+@media (max-width: 575.98px) {
+  .our-work__title {
+    font-size: 1.5rem;
+  }
+}
+@media (max-width: 400px) {
+  .our-work__title {
+    font-size: 1.25rem;
+  }
+}
+.our-work__img {
+  max-width: 100%;
+  height: auto;
+  aspect-ratio: auto 640 / 480;
+  background-size: cover;
+  background-position: center;
+}
+.price-components {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1rem;
+  align-items: flex-start;
+}
+@media (max-width: 767.98px) {
+  .price-components {
+    grid-template-columns: 1fr;
+  }
+}
+.price-components .price-component {
+  padding: 1rem;
+  border: 1px solid #32bf3d;
+  display: flex;
+  align-items: center;
+}
+.price-components .price-component span:first-child {
+  font-size: 2rem;
+  font-weight: 700;
+  margin-right: 1rem;
+  color: #32bf3d;
+}
+.arrangement-examples__image {
+  display: flex;
+  justify-content: center;
+}
+.arrangement-examples__image img {
+  width: 100%;
+}
+.arrangement-prices {
+  background-color: #dfe6f3;
+}
+.arrangement-prices .text {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  height: 100%;
+}
+.arrangement-prices__image {
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: contain;
+  width: 100%;
+  height: 600px;
+}
+.arrangement-prices__image_kesson {
+  height: auto;
+  aspect-ratio: auto 510/454;
+}
