@@ -14,30 +14,7 @@ const authModal = new bootstrap.Modal("#myModal");
 const contentBlocks = document.querySelectorAll("[data-content-id]");
 const imgContentBlocks = document.querySelectorAll("[data-img-content-id]");
 
-// Переменные скрипта
-const isAdmin = !!sessionStorage.getItem(TOKEN_KEY);
-
-// Заполнение контента
-contentBlocks.forEach((block) => {
-  const blockData = contentData?.find((d) => d.id == block.dataset.contentId);
-  if (blockData) {
-    block.innerText = blockData.value;
-  }
-});
-
 imgContentBlocks.forEach((block) => {
-  const blockData = contentData?.find(
-    (d) => d.id == block.dataset.imgContentId
-  );
-  if (blockData) {
-    const img = block.querySelector("img");
-    if (img) {
-      img.src = blockData.value;
-    } else {
-      block.style.backgroundImage = `url(${blockData.value})`;
-    }
-  }
-
   const div = document.createElement("div");
   div.innerHTML = `
     <div>
@@ -47,6 +24,46 @@ imgContentBlocks.forEach((block) => {
   `;
 
   block.append(div.firstElementChild);
+});
+
+// Переменные скрипта
+const isAdmin = !!sessionStorage.getItem(TOKEN_KEY);
+
+// Заполнение контента
+contentData?.forEach((blockData) => {
+  const blocks = document.querySelectorAll(
+    `[data-content-id="${blockData.id}"]`
+  );
+
+  if (blocks?.length) {
+    blocks?.forEach((b) => {
+      b.innerText = blockData.value;
+    });
+    return;
+  }
+
+  const imgBlocks = document.querySelectorAll(
+    `[data-img-content-id="${blockData.id}"]`
+  );
+
+  imgBlocks.forEach((block) => {
+    const img = block.querySelector("img");
+    if (img) {
+      img.src = blockData.value;
+    } else {
+      block.style.backgroundImage = `url(${blockData.value})`;
+    }
+
+    const div = document.createElement("div");
+    div.innerHTML = `
+      <div>
+          <div class="edit-img-btn">Изменить</div>
+          <input hidden name="images" type="file" accept="image/*">
+      </div>
+    `;
+
+    block.append(div.firstElementChild);
+  });
 });
 
 //Отслеживание событий
@@ -117,12 +134,10 @@ const onEditableBlur = ({ target }) => {
   const initData = contentData?.find((d) => d.id == target.dataset.contentId);
   if (target.innerText !== initData?.value) {
     changedData[target.dataset.contentId] = target.innerText;
-    console.log(changedData);
     return;
   }
 
   delete changedData[target.dataset.contentId];
-  console.log(changedData);
 };
 
 // Обработка входа админа

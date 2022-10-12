@@ -71,8 +71,6 @@ class User
                     );
                 }
 
-                return array(array_search($contentId, array_column($content, 'id')), $contentId, $content);
-
                 $stmt = $this->dataBase->db->prepare($query[0]);
                 if ($query[1][0] != null) {
                     $stmt->execute($query[1]);
