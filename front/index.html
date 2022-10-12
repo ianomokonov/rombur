@@ -41,7 +41,12 @@
       <div class="header py-3">
         <div class="row">
           <div class="col-md-3 col-12">
-            <div class="header__logo" data-img-content-id="3" style="background-image: url('assets/images/logo_rombur_final.png')"
+            <div
+              class="header__logo"
+              data-img-content-id="3"
+              style="
+                background-image: url('assets/images/logo_rombur_final.png');
+              "
             ></div>
           </div>
           <div class="col-md-5 col-12">
@@ -59,18 +64,19 @@
               <div class="header__contacts_phone">
                 <div class="pe-md-4">Звоните:</div>
                 <div class="d-flex flex-column">
-                  <a class="text-nowrap text-black" data-content-id="98"
-                  >8 (999) 809-68-55</a
+                  <a class="text-nowrap text-black" href="tel:89998096855" data-content-id="98"
+                    >8 (999) 809-68-55</a
                   >
-                  <a class="text-nowrap text-black" data-content-id="99"
-                  >8 (925) 277-69-25</a
+                  <a class="text-nowrap text-black" href="tel:89252776925" data-content-id="99"
+                    >8 (925) 277-69-25</a
                   >
                 </div>
               </div>
               <span data-content-id="4"
-                >Новая Москва, Московская область - Апрелевка, Бронницы,  Воскресенск,
-                Видное, Гжель, Домодедово, Кашира, Коломна, Люберцы, Михнево, Малино,
-                Наро-Фоминск, Подольск, Раменское, Серпухов, Ступино, Чехов, Жуковский.</span
+                >Новая Москва, Московская область - Апрелевка, Бронницы,
+                Воскресенск, Видное, Гжель, Домодедово, Кашира, Коломна,
+                Люберцы, Михнево, Малино, Наро-Фоминск, Подольск, Раменское,
+                Серпухов, Ступино, Чехов, Жуковский.</span
               >
               <span data-content-id="5">C 9:00 до 20:00</span>
             </div>
@@ -82,7 +88,7 @@
       <nav class="navbar navbar-expand-lg">
         <div class="container">
           <div class="navbar-brand me-md-auto py-3" data-content-id="1">
-            <h3 class="mb-0"></h3>
+            <h3 class="mb-0 d-block d-lg-none">РОМБУР</h3>
           </div>
           <button
             class="navbar-toggler"
@@ -134,7 +140,7 @@
       style="background-image: url('assets/images/new-bg.jpg')"
     >
       <section data-name="banner" class="banner pt-5">
-       <div class="banner__white z-1"></div>
+        <div class="banner__white z-1"></div>
         <div class="container z-2">
           <div class="row justify-content-center">
             <div class="col-lg-10">
@@ -162,9 +168,7 @@
                 <div class="col-md-5">
                   <div
                     class="banner__image d-none d-md-block"
-                    style="
-                      background-image: url('assets/images/cropped.jpg');
-                    "
+                    style="background-image: url('assets/images/cropped.jpg')"
                   ></div>
                 </div>
               </div>
@@ -183,9 +187,13 @@
                   <i class="bi bi-telephone-fill fs-3 text-primary"></i>
                 </div>
                 <div class="d-flex flex-column">
-                  <div class="text-primary fs-5" itemprop="telephone">
+                  <a
+                    href="tel:+79998096855"
+                    class="text-primary fs-5"
+                    itemprop="telephone"
+                  >
                     +7 (999) 809-68-55
-                  </div>
+                  </a>
                   <div class="text-secondary small">Пн-Вс: с 9:00 до 20:00</div>
                 </div>
               </div>
@@ -223,7 +231,7 @@
       <section id="about" data-name="about" class="about pt-5">
         <div class="container">
           <div class="row justify-content-center">
-            <div class="col-10">
+            <div class="col-12 col-md-10">
               <div class="row">
                 <div class="col-12 col-md-8 mb-5">
                   <div class="section-header">
@@ -286,10 +294,11 @@
                   <p data-content-id="19">
                     Компания РОМБУР оказывает услуги по бурению и обустройству
                     водяных скважин на известняк малогабаритной буровой техникой
-                    (МГБУ) в Новой Москве, на юге и юго-востоке Московской области,
-                    в таких городах и поселках как: Апрелевка, Бронницы,  Воскресенск,
-                    Видное, Гжель, Домодедово, Кашира, Коломна, Люберцы, Михнево, Малино,
-                    Наро-Фоминск, Подольск, Раменское, Серпухов, Ступино, Чехов, Жуковский.
+                    (МГБУ) в Новой Москве, на юге и юго-востоке Московской
+                    области, в таких городах и поселках как: Апрелевка,
+                    Бронницы, Воскресенск, Видное, Гжель, Домодедово, Кашира,
+                    Коломна, Люберцы, Михнево, Малино, Наро-Фоминск, Подольск,
+                    Раменское, Серпухов, Ступино, Чехов, Жуковский.
                   </p>
                 </div>
                 <div
@@ -327,11 +336,11 @@
         </div>
       </section>
     </div>
-    <div class="py-5">
+    <div class="pt-5">
       <div class="container">
         <div class="row justify-content-center">
           <div
-            class="arrangement-examples__image col-8"
+            class="arrangement-examples__image col-12 col-md-8"
             data-img-content-id="101"
           >
             <img src="assets/images/well_diagram.jpg" alt="Схема скважины" />
@@ -350,11 +359,10 @@
           </h2>
         </div>
         <div class="types__container"></div>
-<!--        СКОПИРОВАТЬ АЙДИШНИКИ В БЛОК ПОД ТАБЛИЦЕЙ-->
         <table class="types__container_table d-none d-md-block">
           <tr>
             <th scope="col" data-content-id="25">Артезианские скважины</th>
-            <th>
+            <th data-content-id="153">
               По технологии бурения до известняка, долговечны. Глубина залегания
               воды в среднем от 30 до 150 метров, зависит от района, но в редких
               исключениях встречаются и 15, и 200 метров. Фильтр не требуется.
@@ -369,7 +377,7 @@
           </tr>
           <tr>
             <th scope="col" data-content-id="26">Скважины на песок</th>
-            <th>
+            <th data-content-id="154">
               Бурение до глубокого песка, в нижней части устанавливается фильтр.
               Глубина от 20 до 80 метров. Важно часто прокачивать, т.к. при
               редком использовании заиливаются и требуют периодической чистки
@@ -397,10 +405,13 @@
         </table>
         <div class="types__container_mobile d-block d-md-none">
           <div class="types__container_mobile column">
-            <h5 class="types__container_mobile column__header" data-content-id="25">
+            <h5
+              class="types__container_mobile column__header"
+              data-content-id="25"
+            >
               Артезианские скважины
             </h5>
-            <div class="types__container_mobile column__content">
+            <div class="types__container_mobile column__content" data-content-id="153">
               По технологии бурения до известняка, долговечны. Глубина залегания
               воды в среднем от 30 до 150 метров, зависит от района, но в редких
               исключениях встречаются и 15, и 200 метров. Фильтр не требуется.
@@ -414,8 +425,13 @@
             </div>
           </div>
           <div class="types__container_mobile column">
-            <h5 class="types__container_mobile column__header" data-content-id="26">Скважины на песок</h5>
-            <div class="types__container_mobile column__content">
+            <h5
+              class="types__container_mobile column__header"
+              data-content-id="26"
+            >
+              Скважины на песок
+            </h5>
+            <div class="types__container_mobile column__content" data-content-id="154">
               Бурение до глубокого песка, в нижней части устанавливается фильтр.
               Глубина от 20 до 80 метров. Важно часто прокачивать, т.к. при
               редком использовании заиливаются и требуют периодической чистки
@@ -427,8 +443,16 @@
             </div>
           </div>
           <div class="types__container_mobile column">
-            <h5 class="types__container_mobile column__header" data-content-id="27">Абиссинские скважины</h5>
-            <div class="types__container_mobile column__content" data-content-id="28">
+            <h5
+              class="types__container_mobile column__header"
+              data-content-id="27"
+            >
+              Абиссинские скважины
+            </h5>
+            <div
+              class="types__container_mobile column__content"
+              data-content-id="28"
+            >
               Аналог дачного колодца, но с меньшим запасом воды. Процесс бурения
               скважины выполняется несамоходной малогабаритной установкой
               методом прокола. Являются низкодебитными (до 0.5 куб.л./час) и
@@ -447,7 +471,7 @@
       <div class="container">
         <div class="row justify-content-center">
           <div
-            class="arrangement-examples__image col-8"
+            class="arrangement-examples__image col-12 col-md-8"
             data-img-content-id="87"
           >
             <img src="assets/images/glubina.png" alt="Варианты обустройства" />
@@ -458,7 +482,7 @@
     <section id="prices" data-name="region_prices" class="py-5 region_prices">
       <div class="container">
         <div class="row">
-          <div class="col-6">
+          <div class="col-12 col-md-6">
             <div class="section-header mb-4">
               <div class="section-header__subtitle" data-content-id="102">
                 От чего зависит цена
@@ -469,7 +493,7 @@
             </div>
           </div>
 
-          <div class="col-6">
+          <div class="col-12 col-md-6">
             <p class="mb-5" data-content-id="104">
               Давайте разберемся, из чего складывается стоимость работ. Цена
               зависит от типа скважины: артезианская, скважина на песок или
@@ -486,7 +510,7 @@
             </p>
           </div>
           <div class="col-12" style="overflow-x: auto">
-            <table class="w-100">
+            <table class="w-100 text-nowrap">
               <thead class="bg-dark text-white">
                 <tr>
                   <th scope="col" data-content-id="105">Регион работы</th>
@@ -570,7 +594,7 @@
     </section>
     <section data-name="arrangement_prices" class="arrangement-prices py-5">
       <div class="container">
-        <div class="section-header mb-5">
+        <div class="section-header mb-2 mb-md-5">
           <div class="section-header__subtitle" data-content-id="29">
             Цены на обустройство
           </div>
@@ -590,10 +614,10 @@
             <div class="text">
               <div class="section-header">
                 <div class="section-header__subtitle" data-content-id="31">
-                  Летнее обустройство скважины
+                  От 45.000 рублей
                 </div>
                 <h2 class="section-header__title" data-content-id="32">
-                  От 45.000 рублей
+                  Летнее обустройство скважины
                 </h2>
               </div>
               <div data-content-id="33">
@@ -608,10 +632,10 @@
             <div class="text">
               <div class="section-header">
                 <div class="section-header__subtitle" data-content-id="34">
-                  Обустройство скважины с адаптером
+                  От 90.000 рублей
                 </div>
                 <h2 class="section-header__title" data-content-id="35">
-                  От 90.000 рублей
+                  Обустройство скважины с адаптером
                 </h2>
               </div>
               <div data-content-id="36">
@@ -632,7 +656,7 @@
         <div class="row">
           <div class="col-lg-6 col-12 order-lg-0 order-1">
             <div
-              class="arrangement-prices__image"
+              class="arrangement-prices__image arrangement-prices__image_kesson"
               data-img-content-id="90"
               style="background-image: url('assets/images/kesson.png')"
             ></div>
@@ -641,10 +665,10 @@
             <div class="text">
               <div class="section-header">
                 <div class="section-header__subtitle" data-content-id="37">
-                  Обустройство скважины с кессоном
+                  От 135.000 рублей
                 </div>
                 <h2 class="section-header__title" data-content-id="38">
-                  От 135.000 рублей
+                  Обустройство скважины с кессоном
                 </h2>
               </div>
               <div class="d-flex flex-column">
@@ -669,7 +693,7 @@
     <section data-name="drilling_prices" class="py-5 drilling_prices">
       <div class="container">
         <div class="row">
-          <div class="col-8">
+          <div class="col-12 col-md-8">
             <div class="section-header mb-4">
               <div class="section-header__subtitle" data-content-id="43">
                 Цена бурения
@@ -683,7 +707,6 @@
               малогабаритной буровой установкой составляет 100000 рублей
             </p>
           </div>
-          <div class="col-4"></div>
           <div class="col-12" style="overflow-x: auto">
             <table class="w-100">
               <thead class="bg-dark text-white">
@@ -849,8 +872,8 @@
       <div class="container">
         <div class="row justify-content-center">
           <div class="col-md-9 col-12">
-            <div class="row">
-              <div class="col-md-5 col-12 mb-2 mb-md-5">
+            <div class="row px-3">
+              <div class="col-md-5 col-12 mb-3 mb-md-5 px-0">
                 <div class="section-header">
                   <div class="section-header__subtitle" data-content-id="73">
                     Горячая линия
@@ -861,7 +884,7 @@
                 </div>
               </div>
               <div
-                class="col-md-7 col-12 mb-5 pe-0 d-flex flex-column align-items-md-end justify-content-end"
+                class="col-md-7 col-12 mb-5 px-0 d-flex flex-column align-items-md-end justify-content-end"
               >
                 <a
                   href="tel:89998096855"
@@ -877,7 +900,7 @@
                   >8 (925) 277-69-25</a
                 >
               </div>
-              <div class="col-lg-4 col-12 phone-reason">
+              <div class="col-lg-4 col-12 phone-reason mb-3">
                 <div class="phone-reason__title mb-1" data-content-id="76">
                   Оформить заказ
                 </div>
@@ -887,11 +910,11 @@
                 </div>
                 <div class="phone-reason__img" data-img-content-id="92">
                   <img
-                    src="https://aquaionbur.ru/themes/contrib/vartheme_bs5/images/frontpage/icon-warranty.png"
+                    src="assets/images/icon-warranty.png"
                   />
                 </div>
               </div>
-              <div class="col-lg-4 col-12 phone-reason">
+              <div class="col-lg-4 col-12 phone-reason mb-3">
                 <div class="phone-reason__title mb-1" data-content-id="78">
                   Уточнить детали
                 </div>
@@ -903,12 +926,12 @@
 
                 <div class="phone-reason__img" data-img-content-id="93">
                   <img
-                    src="https://aquaionbur.ru/themes/contrib/vartheme_bs5/images/frontpage/icon-docs.png"
+                    src="assets/images/icon-docs.png"
                   />
                 </div>
               </div>
 
-              <div class="col-lg-4 col-12 phone-reason">
+              <div class="col-lg-4 col-12 phone-reason mb-3">
                 <div class="phone-reason__title mb-1" data-content-id="79">
                   Вызвать иженера
                 </div>
@@ -918,7 +941,7 @@
                 </div>
                 <div class="phone-reason__img" data-img-content-id="94">
                   <img
-                    src="https://aquaionbur.ru/themes/contrib/vartheme_bs5/images/frontpage/icon-manager.png"
+                    src="assets/images/icon-manager.png"
                   />
                 </div>
               </div>
@@ -957,7 +980,7 @@
     <footer data-name="footer" class="bg-dark py-4">
       <div class="container py-2">
         <div class="row">
-          <div class="col-2">
+          <div class="col-2 d-none d-sm-block">
             <div
               class="header__logo"
               data-img-content-id="3"
@@ -966,43 +989,60 @@
               "
             ></div>
           </div>
-          <div class="col-10 ps-3">
-            <menu class="footer-menu d-flex flex-lg-row flex-column border-bottom pb-4 ps-0">
-              <a
-                href="#about"
-                class="footer-menu__item px-3 ps-lg-0 nav-link"
-                data-content-id="6"
-                >О нас</a
+          <div class="col-12 col-sm-10 ps-sm-3">
+            <div class="d-flex d-lg-block justify-content-between border-bottom mb-4">
+              <div class="w-50">
+                  <div
+                  class="header__logo d-sm-none d-block"
+                  data-img-content-id="3"
+                  style="
+                    background-image: url('assets/images/logo_rombur_final_prozrachny_white.png');
+                  "
+                ></div>
+              </div>
+              
+              <menu
+                class="footer-menu d-flex flex-lg-row flex-column ps-0"
               >
-              <a
-                href="#types"
-                class="footer-menu__item px-3 nav-link"
-                data-content-id="7"
-                >Виды скважин</a
-              >
-              <a
-                href="#prices"
-                class="footer-menu__item px-3 nav-link"
-                data-content-id="8"
-                >Цены на бурение</a
-              >
-              <a
-                href="#contacts"
-                class="footer-menu__item px-3 nav-link"
-                data-content-id="9"
-                >Контакты</a
-              >
-              <a
-                href="#work"
-                class="footer-menu__item px-3 nav-link"
-                data-content-id="10"
-                >Мы в работе</a
-              >
-            </menu>
+                <a
+                  href="#about"
+                  class="footer-menu__item px-3 ps-lg-0 nav-link"
+                  data-content-id="6"
+                  >О нас</a
+                >
+                <a
+                  href="#types"
+                  class="footer-menu__item px-3 nav-link"
+                  data-content-id="7"
+                  >Виды скважин</a
+                >
+                <a
+                  href="#prices"
+                  class="footer-menu__item px-3 nav-link"
+                  data-content-id="8"
+                  >Цены на бурение</a
+                >
+                <a
+                  href="#contacts"
+                  class="footer-menu__item px-3 nav-link"
+                  data-content-id="9"
+                  >Контакты</a
+                >
+                <a
+                  href="#work"
+                  class="footer-menu__item px-3 nav-link"
+                  data-content-id="10"
+                  >Мы в работе</a
+                >
+              </menu>
+            </div>
             <div class="copyright" data-content-id="86">
               © Copyright 2022. Копирование материалов без разрешения автора
               запрещено.
             </div>
+          </div>
+
+            
           </div>
         </div>
       </div>
@@ -1055,7 +1095,7 @@
         </div>
       </div>
     </div>
-<!--    <script src="content-edit.js" type="module"></script>-->
+    <!--    <script src="content-edit.js" type="module"></script>-->
 
     <!-- Modal -->
   </body>

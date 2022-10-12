@@ -7,6 +7,10 @@
   text-decoration: none;
   line-height: 2rem;
   color: @color-success;
+
+  @media (max-width: 575.98px) {
+    .font-size(xl);
+  }
 }
 
 .phone-reason {
@@ -16,10 +20,6 @@
   border: 1px solid @color-success;
 
   @media (max-width: 991.98px) {
-    &:not(:last-child) {
-      border-bottom: none;
-    }
-
     height: auto;
     padding-bottom: 4.6rem;
   }
