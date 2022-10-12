@@ -1,0 +1,23 @@
+@import "../colors";
+
+.types {
+  &__container_mobile {
+    &.column {
+      padding-left: 0.5rem;
+      padding-right: 0.5rem;
+      &__header {
+        text-align: center;
+        padding-top: 0.5rem;
+        padding-bottom: 0.5rem;
+        border-bottom: 1px solid @color-green;
+      }
+      &__content {
+        text-align: justify;
+        padding-bottom: 1rem;
+      }
+      &:nth-child(2n) {
+        background-color: @color-gray-table;
+      }
+    }
+  }
+}
