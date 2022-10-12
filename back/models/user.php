@@ -66,7 +66,7 @@ class User
                     );
                 } else {
                     $query = $this->dataBase->genInsertQuery(
-                        array("value" => $data[$contentId]),
+                        array("id" => $contentId, "value" => $data[$contentId]),
                         "Content"
                     );
                 }
