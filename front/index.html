@@ -4,7 +4,7 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>РОМБУР</title>
+    <title>БУРЕНИЕ СКВАЖИН МАЛОГАБАРИТНОЙ БУРОВОЙ УСТАНОВКОЙ</title>
     <!-- CSS only -->
     <link
       href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css"
@@ -35,16 +35,11 @@
     <header class="container">
       <div class="header py-3">
         <div class="row">
-          <div class="col-md-3 col-6">
-            <div
-              class="header__logo"
-              data-img-content-id="3"
-              style="
-                background-image: url('assets/images/logo_rombur_final_prozrachny.png');
-              "
+          <div class="col-md-3 col-12">
+            <div class="header__logo" data-img-content-id="3" style="background-image: url('assets/images/logo_rombur_final.png')"
             ></div>
           </div>
-          <div class="col-md-5 col-6">
+          <div class="col-md-5 col-12">
             <div class="header__center">
               <span data-content-id="2">
                 Бурение, обустройство артезианских скважин на воду под ключ |
@@ -57,18 +52,20 @@
           <div class="col-md-4">
             <div class="header__contacts">
               <div class="header__contacts_phone">
-                <div class="pe-1">Звоните:</div>
-                <a class="text-nowrap text-black" data-content-id="99"
+                <div class="pe-md-4">Звоните:</div>
+                <div class="d-flex flex-column">
+                  <a class="text-nowrap text-black" data-content-id="98"
                   >8 (999) 809-68-55</a
-                >;
-                <a class="text-nowrap ms-2 text-black" data-content-id="98"
+                  >
+                  <a class="text-nowrap text-black" data-content-id="99"
                   >8 (925) 277-69-25</a
-                >
+                  >
+                </div>
               </div>
               <span data-content-id="4"
-                >Московская область - Ступино, Михнево, Малино, Чехов,
-                Раменское, Бронницы, Домодедово, Кашира, Серпухов, Воскресенск,
-                Коломна, Подольск</span
+                >Новая Москва, Московская область - Апрелевка, Бронницы,  Воскресенск,
+                Видное, Гжель, Домодедово, Кашира, Коломна, Люберцы, Михнево, Малино,
+                Наро-Фоминск, Подольск, Раменское, Серпухов, Ступино, Чехов, Жуковский.</span
               >
               <span data-content-id="5">C 9:00 до 20:00</span>
             </div>
@@ -80,7 +77,7 @@
       <nav class="navbar navbar-expand-lg">
         <div class="container">
           <div class="navbar-brand me-md-auto py-3" data-content-id="1">
-            <h3 class="mb-0">РОМБУР</h3>
+            <h3 class="mb-0"></h3>
           </div>
           <button
             class="navbar-toggler"
@@ -129,11 +126,11 @@
     </section>
     <div
       class="background-container"
-      style="background-image: url('assets/images/content-bg.jpg')"
+      style="background-image: url('assets/images/new-bg.jpg')"
     >
       <section data-name="banner" class="banner pt-5">
-        <div class="banner__white z-1"></div>
-        <div class="container z-2">
+<!--        <div class="banner__white z-1"></div>-->
+        <div class="container">
           <div class="row justify-content-center">
             <div class="col-lg-10">
               <div class="row">
@@ -161,7 +158,7 @@
                   <div
                     class="banner__image d-none d-md-block"
                     style="
-                      background-image: url('assets/images/content-front-image.jpg');
+                      background-image: url('assets/images/cropped.jpg');
                     "
                   ></div>
                 </div>
@@ -277,11 +274,10 @@
                   <p data-content-id="19">
                     Компания РОМБУР оказывает услуги по бурению и обустройству
                     водяных скважин на известняк малогабаритной буровой техникой
-                    (МГБУ) на юге и юго-востоке Московской области, в таких
-                    городах и поселках как: Норо-Фоминский р-н, Малино, Михнево,
-                    Бронницы, Раменское, Домодедово, Воскресенск, Чехов,
-                    Подольск, Видное, Люберцы, Серпухов, Коломна, Жуковский,
-                    Гжель.
+                    (МГБУ) в Новой Москве, на юге и юго-востоке Московской области,
+                    в таких городах и поселках как: Апрелевка, Бронницы,  Воскресенск,
+                    Видное, Гжель, Домодедово, Кашира, Коломна, Люберцы, Михнево, Малино,
+                    Наро-Фоминск, Подольск, Раменское, Серпухов, Ступино, Чехов, Жуковский.
                   </p>
                 </div>
                 <div
@@ -341,7 +337,9 @@
             Выделяют три вида скважин на воду
           </h2>
         </div>
-        <table class="w-100">
+        <div class="types__container"></div>
+<!--        СКОПИРОВАТЬ АЙДИШНИКИ В БЛОК ПОД ТАБЛИЦЕЙ-->
+        <table class="types__container_table d-none d-md-block">
           <tr>
             <th scope="col" data-content-id="25">Артезианские скважины</th>
             <th>
@@ -385,6 +383,52 @@
             </th>
           </tr>
         </table>
+        <div class="types__container_mobile d-block d-md-none">
+          <div class="types__container_mobile column">
+            <h5 class="types__container_mobile column__header" data-content-id="25">
+              Артезианские скважины
+            </h5>
+            <div class="types__container_mobile column__content">
+              По технологии бурения до известняка, долговечны. Глубина залегания
+              воды в среднем от 30 до 150 метров, зависит от района, но в редких
+              исключениях встречаются и 15, и 200 метров. Фильтр не требуется.
+              Дебит большой - от 3 м3/час. Время службы не ограничено. Гарантия
+              до 12 лет, в зависимости от конструкции. Вода из такого источника
+              полезна, т.к. богата природными минералами и не содержит
+              микроорганизмов. Ее можно пить без кипячения. Монтаж водяной
+              скважины будет не дешевым, но, учитывая отсутствие затрат на
+              дальнейшее обслуживание, его стоимость хоть и выше, но вполне
+              оправдана. Отлично подойдет для водоснабжения загородного дома.
+            </div>
+          </div>
+          <div class="types__container_mobile column">
+            <h5 class="types__container_mobile column__header" data-content-id="26">Скважины на песок</h5>
+            <div class="types__container_mobile column__content">
+              Бурение до глубокого песка, в нижней части устанавливается фильтр.
+              Глубина от 20 до 80 метров. Важно часто прокачивать, т.к. при
+              редком использовании заиливаются и требуют периодической чистки
+              специальным оборудованием. Дебит до 1 куб.литра воды/час.
+              Эксплуатация от 3 до 10 лет. Гарантия 1 год. В виду наличия
+              микроорганизмов, воду из скважины на песок для питья необходимо
+              кипятить. Находятся в среднем ценовом диапазоне и подойдут, если
+              вы ограничены в средствах при строительстве дома.
+            </div>
+          </div>
+          <div class="types__container_mobile column">
+            <h5 class="types__container_mobile column__header" data-content-id="27">Абиссинские скважины</h5>
+            <div class="types__container_mobile column__content" data-content-id="28">
+              Аналог дачного колодца, но с меньшим запасом воды. Процесс бурения
+              скважины выполняется несамоходной малогабаритной установкой
+              методом прокола. Являются низкодебитными (до 0.5 куб.л./час) и
+              подходят для летнего использования, но в сильную жару могут
+              пересыхать. Прослужит до 60 мес. Пополняются талыми и грунтовыми
+              водами. Есть риск попадания загрязнения из септиков, стоков
+              канализации и выгребных ям. Требует обязательной фильтрации и
+              кипячения. Это самый низкозатратный вариант загородного
+              водоснабжения дачи.
+            </div>
+          </div>
+        </div>
       </div>
     </section>
     <section data-name="arrangement_examples">
@@ -915,10 +959,10 @@
             ></div>
           </div>
           <div class="col-10 ps-3">
-            <menu class="footer-menu d-sm-flex d-none border-bottom pb-4 ps-0">
+            <menu class="footer-menu d-flex flex-lg-row flex-column border-bottom pb-4 ps-0">
               <a
                 href="#about"
-                class="footer-menu__item pe-3 nav-link"
+                class="footer-menu__item px-3 ps-lg-0 nav-link"
                 data-content-id="6"
                 >О нас</a
               >
@@ -1003,7 +1047,7 @@
         </div>
       </div>
     </div>
-    <script src="content-edit.js" type="module"></script>
+<!--    <script src="content-edit.js" type="module"></script>-->
 
     <!-- Modal -->
   </body>

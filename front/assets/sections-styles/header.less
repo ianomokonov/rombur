@@ -3,8 +3,10 @@
 .header {
   &__logo {
     background-position: center;
-    background-size: cover;
+    background-size: contain;
+    background-repeat: no-repeat;
     max-width: 100%;
+    height: 100%;
     aspect-ratio: auto 482/294;
   }
   &__center {
@@ -23,8 +25,18 @@
       min-height: 50px;
       padding-bottom: 1.2rem;
     }
+    @media (max-width: 767.98px) {
+      align-items: flex-start;
+      &_phone {
+        flex-direction: column;
+        align-items: flex-start;
+        justify-content: center;
+      }
+    }
     span {
-      text-align: end;
+      @media (min-width: 768px) {
+        text-align: end;
+      }
     }
   }
 
