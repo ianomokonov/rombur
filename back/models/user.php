@@ -58,7 +58,7 @@ class User
         if ($data != null) {
             foreach (array_keys($data) as $contentId) {
                 $query = [];
-                if (array_search($contentId, array_column($content, 'id'))) {
+                if (array_search($contentId, array_column($content, 'id')) !== false) {
                     $query = $this->dataBase->genUpdateQuery(
                         array("value" => $data[$contentId]),
                         "Content",
@@ -172,7 +172,7 @@ class User
         foreach ($photoIds as $contentId) {
             $res = $this->fileUploader->upload($photos[$contentId], 'Images', uniqid(), $this->baseUrl);
             $query = [];
-            if (array_search($contentId, array_column($content, 'id'))) {
+            if (array_search($contentId, array_column($content, 'id')) !== false) {
                 $query = $this->dataBase->genUpdateQuery(
                     array("value" => $res),
                     "Content",
